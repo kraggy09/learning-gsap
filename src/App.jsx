@@ -1,10 +1,10 @@
-import TimeLine from "./components/TimeLine";
-// import Stagger from "./components/Stagger";
+import SVGExample from "./components/SVGExample";
+import UseScrollTrigger from "./components/UseScrollTrigger";
 
 const App = () => {
   return (
-    <div className="h-screen bg-black text-white">
-      <TimeLine />
+    <div className="h-screen  ">
+      <SVGExample />
     </div>
   );
 };

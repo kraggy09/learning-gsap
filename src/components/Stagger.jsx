@@ -23,7 +23,7 @@ const Stagger = () => {
       ref={container}
       className="flex bg-black text-3xl overflow-hidden text-white items-center justify-start min-h-screen flex-col"
     >
-      <h1>Welcom</h1>
+      <h1>Welcome</h1>
       <h1>to</h1>
       <h1>GSAP</h1>
     </div>

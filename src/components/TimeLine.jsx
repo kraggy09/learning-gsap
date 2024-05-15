@@ -23,7 +23,6 @@ const TimeLine = () => {
       <h1 className="px-12">Kaif.dev</h1>
       <ul className="flex gap-x-6 mr-36">
         <li>Home</li>
-
         <li>About</li>
         <li>Contact</li>
       </ul>
