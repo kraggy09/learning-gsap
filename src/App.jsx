@@ -1,10 +1,9 @@
-import SVGExample from "./components/SVGExample";
-import UseScrollTrigger from "./components/UseScrollTrigger";
+import AnimatedText from "./components/AnimatedText";
 
 const App = () => {
   return (
-    <div className="h-screen  ">
-      <SVGExample />
+    <div className="h-screen text-white flex items-center justify-center relative  bg-black">
+      <AnimatedText />
     </div>
   );
 };

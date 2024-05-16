@@ -3,8 +3,9 @@ import gsap from "gsap";
 const SVGExample = () => {
   const handleMouseMove = (e) => {
     let y = e.clientY - 200;
+    let x = e.clientX;
     console.log(y);
-    let newPath = `M 10 100 Q 500 ${y} 990 100`;
+    let newPath = `M 10 100 Q ${x} ${y} 990 100`;
 
     gsap.to("svg path", {
       attr: {
@@ -27,8 +28,9 @@ const SVGExample = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="h-screen border-2 border-black flex items-center justify-center">
       <svg
+        className="border border-black rounded-xl"
         width="1000"
         height="200"
         onMouseMove={handleMouseMove}
