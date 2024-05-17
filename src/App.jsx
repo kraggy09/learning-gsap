@@ -1,9 +1,9 @@
-import AnimatedText from "./components/AnimatedText";
+import LandingPage from "./components/LandingPage";
 
 const App = () => {
   return (
-    <div className="h-screen text-white flex items-center justify-center relative  bg-black">
-      <AnimatedText />
+    <div className="h-screen">
+      <LandingPage />
     </div>
   );
 };
