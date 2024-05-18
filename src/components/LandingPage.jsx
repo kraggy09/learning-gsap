@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 const LandingPage = () => {
-  useGSAP(() => {
+  const section1Animation = () => {
     let tl = gsap.timeline();
     tl.from("nav h1,nav ul li", {
       opacity: 0,
@@ -28,11 +28,75 @@ const LandingPage = () => {
       },
       "-=1"
     );
+    tl.from(
+      "#section1-bottom img",
+      {
+        y: 50,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.2,
+      },
+      "-=1"
+    );
+  };
+
+  const section2Amimation = () => {
+    // IF we want two or more animation to work together just give them a similar name and they will start working togetherr
+    let tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#section2",
+        scroller: "body",
+        start: "top 40%",
+        end: "top 10%",
+        scrub: 2,
+      },
+    });
+    tl2.from(".services", {
+      x: 30,
+      opacity: 0,
+    });
+
+    tl2.from(
+      "#left1",
+      {
+        opacity: 0,
+        x: -300,
+      },
+      "anim"
+    );
+    tl2.from(
+      "#right1",
+      {
+        opacity: 0,
+        x: 300,
+      },
+      "anim"
+    );
+    tl2.from(
+      "#left2",
+      {
+        opacity: 0,
+        x: -300,
+      },
+      "anim1"
+    );
+    tl2.from(
+      "#right2",
+      {
+        opacity: 0,
+        x: 300,
+      },
+      "anim1"
+    );
+  };
+  useGSAP(() => {
+    section1Animation();
+    section2Amimation();
   });
 
   return (
     <>
-      <section id="section1" className=" relative w-screen">
+      <section id="section1" className=" relative  w-screen">
         <nav className="flex p-6 px-16 items-center justify-between">
           <h1 className="text-2xl font-bold">
             <i className="inline-block rotate-45 ri-shining-2-fill"></i> WizardZ
@@ -70,13 +134,16 @@ const LandingPage = () => {
           </article>
           <article id="hero-right" className="h-full w-[60%] =">
             <img
-              className="h-full mx-auto"
+              className="h-96 mx-auto"
               src="https://www.unicuscreatives.in/media/graphics/homepage-megaphone.svg"
               alt="abc"
             />
           </article>
         </main>
-        <footer className="flex items-center min-h-16 justify-around">
+        <footer
+          id="section1-bottom"
+          className="flex my-16  items-center min-h-16 justify-around"
+        >
           <img
             src="https://static.vecteezy.com/system/resources/previews/019/766/240/non_2x/amazon-logo-amazon-icon-transparent-free-png.png"
             className="h-16 "
@@ -109,7 +176,7 @@ const LandingPage = () => {
           />
         </footer>
       </section>
-      <section id="section2" className="px-16 h-screen">
+      <section id="section2" className="px-16 py-2 h-screen">
         <div className="services flex items-center my-16  justify-start ">
           <h3 className="text-3xl mr-6 py-1 rounded-xl px-3 bg-lime-300">
             Services
@@ -120,8 +187,12 @@ const LandingPage = () => {
             asperiores at expedita.
           </p>
         </div>
-        <div id="portfolio" className="grid gap-6 grid-cols-2">
+        <div
+          id="portfolio"
+          className="grid gap-6 items-center justify-center justify-items-center grid-cols-2"
+        >
           <div
+            id="left1"
             style={{ boxShadow: "0px 12px 0px black" }}
             className="h-[200px] w-[500px] rounded-lg border-2 border-black  flex items-start justify-between "
           >
@@ -141,6 +212,7 @@ const LandingPage = () => {
             />
           </div>
           <div
+            id="right1"
             style={{ boxShadow: "0px 12px 0px black" }}
             className="h-[200px] w-[500px] rounded-lg border-2 border-black  flex items-start justify-between "
           >
@@ -161,6 +233,7 @@ const LandingPage = () => {
           </div>
 
           <div
+            id="left2"
             style={{ boxShadow: "0px 12px 0px black" }}
             className="h-[200px] w-[500px] rounded-lg border-2 border-black  flex items-start justify-between "
           >
@@ -180,6 +253,7 @@ const LandingPage = () => {
             />
           </div>
           <div
+            id="right2"
             style={{ boxShadow: "0px 12px 0px black" }}
             className="h-[200px] w-[500px] rounded-lg border-2 border-black  flex items-start justify-between "
           >
